@@ -44,4 +44,42 @@ const bookStore = {
 }
 
 // Write your code here!
+const books = [
+  {
+    title: 'Eloquent JavaScript: A Modern Introduction to Programming',
+    author: 'Marijn Haverbeke',
+    image: 'https://images-na.ssl-images-amazon.com/images/I/51as+WqTXxL.jpg'
+  },
+  {
+    title: 'HTML and CSS: Design and Build Websites',
+    author: 'Jon Duckett',
+    image: 'https://images-na.ssl-images-amazon.com/images/I/41vWj5Zp2-L.jpg'
+  },
+  {
+    title: 'Cracking the Coding Interview',
+    author: 'Gayle Laakmann McDowell',
+    image: 'https://images-na.ssl-images-amazon.com/images/I/41uPjEenkFL.jpg'
+  }
+];
 
+const bookList = document.getElementById('book-list');
+bookList.innerHTML = '';
+
+books.forEach(book => {
+  const li = document.createElement('li');
+
+  const h2 = document.createElement('h2');
+  h2.textContent = book.title;
+  li.appendChild(h2);
+
+  const p = document.createElement('p');
+  p.textContent = book.author;
+  li.appendChild(p);
+
+  const img = document.createElement('img');
+  img.src = book.image;
+  img.alt = `${book.title} cover`;
+  li.appendChild(img);
+
+  bookList.appendChild(li);
+});
